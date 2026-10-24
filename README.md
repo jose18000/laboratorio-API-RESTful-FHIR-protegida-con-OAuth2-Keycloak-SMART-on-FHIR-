@@ -197,6 +197,4 @@ Para reproducir el "antes", descomenta `ports: - "8080:8080"` en el servicio `ha
 - [RFC 6749 (OAuth 2.0)](https://www.rfc-editor.org/rfc/rfc6749) · [RFC 6750 (Bearer Token)](https://www.rfc-editor.org/rfc/rfc6750)
 - [Keycloak](https://www.keycloak.org/documentation) · [HAPI FHIR](https://hapifhir.io/)
 
-## Licencia
 
-MIT. Consulta [LICENSE](LICENSE).
