@@ -1,7 +1,9 @@
 # API RESTful FHIR protegida con OAuth2 (HAPI FHIR + Keycloak + SMART on FHIR)
 
-**Autores:** Jose Guillermo Canchila Essis y Santiago Fuentes· Ingeniería de Sistemas, 9.º semestre
-**Asignatura:** Sistemas distribuidos · **Docente:** Jaider Reyes Herazo · **Fecha:** 21 octubre 2026
+**Autores:** Jose Guillermo Canchila Essis y Santiago Fuentes · Ingeniería de Sistemas, 9.º semestre
+**Asignatura:** Sistemas distribuidos 
+**Docente:** Jaider Reyes Herazo  
+**Fecha:** 21 octubre 2026
 
 Laboratorio práctico de interoperabilidad en salud y seguridad de APIs. Se despliega un servidor **HAPI FHIR (R4)** y se protege con **OAuth2 / OpenID Connect** usando **Keycloak** y un **gateway** (FastAPI) que valida el JWT y los *scopes* de estilo **SMART on FHIR** antes de reenviar la petición.
 
