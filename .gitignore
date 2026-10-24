@@ -1,0 +1,19 @@
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Secretos y entorno local
+.env
+*.pem
+*.key
+token*.txt
+
+# Datos y sistema
+*.log
+.DS_Store
+Thumbs.db
+
+# Informe con datos personales (subir solo si lo deseas)
+*.docx

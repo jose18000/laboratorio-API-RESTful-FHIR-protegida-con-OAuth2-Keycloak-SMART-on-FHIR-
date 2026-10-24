@@ -1,0 +1,45 @@
+services:
+  hapi:
+    image: hapiproject/hapi:latest
+    container_name: hapi
+    # Sin "ports": HAPI solo es accesible desde la red interna (via gateway).
+    # Para la linea base insegura del Paso 1, descomenta:
+    # ports:
+    #   - "8080:8080"
+    networks:
+      - fhirnet
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.0
+    container_name: keycloak
+    command: start-dev
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin   # SOLO LABORATORIO
+      KC_HOSTNAME: http://localhost:8081
+      KC_HOSTNAME_BACKCHANNEL_DYNAMIC: "true"
+      KC_HTTP_ENABLED: "true"
+    ports:
+      - "8081:8080"
+    networks:
+      - fhirnet
+
+  gateway:
+    build: ./gateway
+    container_name: gateway
+    environment:
+      HAPI_URL: http://hapi:8080
+      ISSUER: http://localhost:8081/realms/fhir-lab
+      JWKS_URL: http://keycloak:8080/realms/fhir-lab/protocol/openid-connect/certs
+      PUBLIC_BASE: http://localhost:8000
+    ports:
+      - "8000:8000"
+    depends_on:
+      - hapi
+      - keycloak
+    networks:
+      - fhirnet
+
+networks:
+  fhirnet:
+    driver: bridge
